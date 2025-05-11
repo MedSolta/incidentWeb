@@ -1,0 +1,58 @@
+.profile-name-container {
+  display: inline-block;
+  position: relative;
+}
+
+.profile-name {
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin: -2px -6px;
+}
+
+.profile-name:hover {
+  background-color: rgba(67, 97, 238, 0.1);
+  color: #4361ee;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(67, 97, 238, 0.15);
+}
+
+.profile-icon {
+  opacity: 0;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
+}
+
+.profile-name:hover .profile-icon {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Animation de pulsation au survol */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(67, 97, 238, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(67, 97, 238, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(67, 97, 238, 0);
+  }
+}
+
+.profile-name:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite;
+  pointer-events: none;
+}
